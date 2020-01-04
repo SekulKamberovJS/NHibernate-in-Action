@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+	<session-factory name="NHibernateInAction">
+		<property name="current_session_context_class">factory</property>
+		<property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+
+		<!-- Settings to access a SQL Server database -->
+		<property name="dialect">NHibernate.Dialect.MsSql2000Dialect</property>
+		<property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+		<property name="connection.connection_string">Data Source=(local);Initial Catalog=nhibernate;Integrated Security=SSPI</property>
+
+		<!-- Enable SQL logging -->
+		<property name="show_sql">true</property>
+	</session-factory>
+</hibernate-configuration>

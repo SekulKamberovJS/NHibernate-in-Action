@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+
+Mapping file for the audit log record.
+
+This mapping uses an internally managed identifier and access
+fields of the AuditLogRecord class directly. Keep it simple,
+this part of our persistence layer doesn't need more abstraction
+and encapsulation.
+
+@author Christian Bauer <christian@hibernate.org>
+
+-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" namespace="NHibernateInAction.CaveatEmptor.Persistence.Audit" assembly="NHibernateInAction.CaveatEmptor" default-lazy="false">
+
+<class name="AuditLogRecord"
+	   table="AUDIT_LOG" mutable="false">
+
+	<id type="long" column="AUDIT_LOG_ID">
+		<generator class="native"/>
+	</id>
+
+	<property   name="Message"
+				type="string"
+				column="MESSAGE"
+				length="255"
+				not-null="true"
+				access="field"/>
+
+	<property   name="EntityId"
+				type="long"
+				column="ENTITY_ID"
+				not-null="true"
+				access="field"/>
+
+	<property   name="EntityClass"
+				type="class"
+				column="ENTITY_CLASS"
+				not-null="true"
+				access="field"/>
+
+	<property   name="UserId"
+				type="long"
+				column="USER_ID"
+				not-null="true"
+				access="field"/>
+
+	<property   name="Created"
+				column="CREATED"
+				type="Date"
+				update="false"
+				not-null="true"
+				access="field"/>
+
+</class>
+
+</hibernate-mapping>

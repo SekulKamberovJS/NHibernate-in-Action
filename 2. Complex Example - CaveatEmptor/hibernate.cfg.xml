@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+	<session-factory name="NHibernateInAction">
+		<property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+
+		<!-- Settings to access a SQL Server database -->
+		<property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+		<property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+		<property name="connection.connection_string">Data Source=localhost;Initial Catalog=CaveatEmptor;Integrated Security=SSPI</property>
+		<!-- Enable SQL logging -->
+		<property name="show_sql">true</property>
+
+		<!-- Tell NHibernate what assemby contains the mapping data -->
+		<!--<mapping assembly="NHibernateInAction.CaveatEmptor" />-->
+	</session-factory>
+</hibernate-configuration>

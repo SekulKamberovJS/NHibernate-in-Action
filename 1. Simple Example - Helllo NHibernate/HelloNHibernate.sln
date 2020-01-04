@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNHibernate.1.2", "HelloNHibernate For 1.2\HelloNHibernate.1.2.csproj", "{8A335F80-C4EC-4587-AE32-B3184A3BC012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNHibernate.2.0", "HelloNHibernate For 2.0\HelloNHibernate.2.0.csproj", "{C3769EEB-2533-4C07-A7C9-7A7CD20B5559}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A335F80-C4EC-4587-AE32-B3184A3BC012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A335F80-C4EC-4587-AE32-B3184A3BC012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A335F80-C4EC-4587-AE32-B3184A3BC012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A335F80-C4EC-4587-AE32-B3184A3BC012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3769EEB-2533-4C07-A7C9-7A7CD20B5559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3769EEB-2533-4C07-A7C9-7A7CD20B5559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3769EEB-2533-4C07-A7C9-7A7CD20B5559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3769EEB-2533-4C07-A7C9-7A7CD20B5559}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

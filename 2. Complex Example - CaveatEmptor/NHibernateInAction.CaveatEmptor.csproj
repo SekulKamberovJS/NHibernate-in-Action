@@ -1,0 +1,310 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A59CAE16-3E15-4E53-95F4-EE488D0CEC40}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>NHibernateInAction.CaveatEmptor</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NHibernateInAction.CaveatEmptor</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>http://localhost/NHibernateInAction.CaveatEmptor/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NHibernate\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NHibernate\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=1.2.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Mapping.Attributes, Version=1.2.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NHibernate\NHibernate.Mapping.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.7.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices">
+      <Name>system.EnterpriseServices</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>system.Web</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ItemQueries.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_README.txt" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dao\CategoryDAO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dao\CommentDAO.cs" />
+    <Compile Include="Dao\DAO.cs" />
+    <Compile Include="Dao\ItemDAO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dao\UserDAO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\BusinessException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\InfrastructureException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\PermissionException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Address.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\BankAccount.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Bid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\BillingDetails.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CategorizedItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Category.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Comment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CreditCard.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CreditCardType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Customer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CustomerLocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\IAuditable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Item.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\ItemState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\MonetaryAmount.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Rating.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\SystemTime.cs" />
+    <Compile Include="Model\User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\UserId.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\Audit\AuditableAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\Audit\AuditLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\Audit\AuditLogInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\Audit\AuditLogRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\Audit\LogType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\CENamingStrategy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\MonetaryAmountCompositeUserType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\MonetaryAmountSimpleUserType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\NHibernateHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\NHibernateHelperSimple.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\NHibernateHelper_EntSrvs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\NHibernateHelper_Thread.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Persistence\NHibernateHelper_ThreadAndHttpContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Test\AuditLogFixure.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test\CategorizedItemFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test\ItemFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test\AllClassesSaveLoadFixture.cs" />
+    <Compile Include="Test\Utility\TestDataFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test\Utility\TestFixtureBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test\Utility\TestFixtureWithSampleDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Persistence\Audit\AuditLogRecord.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

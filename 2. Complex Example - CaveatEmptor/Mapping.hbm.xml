@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Generated from NHibernate.Mapping.Attributes on 2008-10-18 19:24:59Z.-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="NHibernateInAction.CaveatEmptor.Model.CustomerLocation, NHibernateInAction.CaveatEmptor" table="CUSTOMER_LOCATION">
+    <composite-id>
+      <key-property name="One" column="CUSTOMER_LOCATION_ONE" length="100" />
+      <key-property name="Two" column="CUSTOMER_LOCATION_TWO" length="100" />
+    </composite-id>
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.BillingDetails, NHibernateInAction.CaveatEmptor" table="BILLING_DETAILS">
+    <id name="Id" access="nosetter.camelcase" column="BILLING_DETAILS_ID">
+      <generator class="native" />
+    </id>
+    <version name="Version" access="nosetter.camelcase" column="VERSION" />
+    <property name="OwnerName" column="OWNER_NAME" not-null="true" />
+    <property name="Created" access="nosetter.camelcase" column="CREATED" not-null="true" update="false" />
+    <many-to-one name="User" access="nosetter.camelcase" column="USER_ID" outer-join="false" update="false" />
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.Category, NHibernateInAction.CaveatEmptor" table="CATEGORY">
+    <id name="Id" access="nosetter.camelcase" column="CATEGORY_ID">
+      <generator class="native" />
+    </id>
+    <property name="Name">
+      <column name="NAME" length="255" not-null="true" unique-key="UNIQUE_NAME_AT_LEVEL" />
+    </property>
+    <property name="Created" access="nosetter.camelcase" column="CREATED" not-null="true" update="false" />
+    <many-to-one name="ParentCategory" outer-join="false" foreign-key="FK1_PARENT_CATEGORY_ID">
+      <column name="PARENT_CATEGORY_ID" not-null="false" />
+    </many-to-one>
+    <set name="ChildCategories" access="nosetter.camelcase" cascade="all-delete-orphan" inverse="true" batch-size="10">
+      <key column="PARENT_CATEGORY_ID" />
+      <one-to-many class="NHibernateInAction.CaveatEmptor.Model.Category, NHibernateInAction.CaveatEmptor" />
+    </set>
+    <set name="CategorizedItems" access="nosetter.camelcase" outer-join="false" cascade="all-delete-orphan" inverse="true">
+      <key foreign-key="FK1_CATEGORIZED_ITEM_ID">
+        <column name="CATEGORY_ID" length="16" not-null="true" />
+      </key>
+      <one-to-many class="NHibernateInAction.CaveatEmptor.Model.CategorizedItem, NHibernateInAction.CaveatEmptor" />
+    </set>
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.CategorizedItem, NHibernateInAction.CaveatEmptor" lazy="true" table="CATEGORIZED_ITEM">
+    <composite-id name="Id" access="nosetter.camelcase" unsaved-value="any">
+      <key-property name="categoryId" access="field" />
+      <key-property name="itemId" access="field" />
+    </composite-id>
+    <property name="Username" access="nosetter.camelcase" column="USERNAME" not-null="true" update="false" />
+    <property name="DateAdded" access="nosetter.camelcase" column="DATE_ADDED" not-null="true" update="false" />
+    <many-to-one name="Category" access="nosetter.camelcase" column="CATEGORY_ID" not-null="true" update="false" />
+    <many-to-one name="Item" access="nosetter.camelcase" column="ITEM_ID" not-null="true" update="false" />
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.Item, NHibernateInAction.CaveatEmptor" lazy="false" table="ITEM">
+    <id name="Id" access="nosetter.camelcase" column="ITEM_ID">
+      <generator class="native" />
+    </id>
+    <version name="Version" access="nosetter.camelcase" column="VERSION" />
+    <property name="Name" access="nosetter.camelcase" column="NAME" length="255" not-null="true" update="false" />
+    <property name="Description" access="nosetter.camelcase" column="DESCRIPTION" length="4000" not-null="true" />
+    <property name="InitialPrice" access="nosetter.camelcase" type="NHibernateInAction.CaveatEmptor.Persistence.MonetaryAmountCompositeUserType, NHibernateInAction.CaveatEmptor">
+      <column name="INITIAL_PRICE" length="2" not-null="true" />
+      <column name="INITIAL_PRICE_CURRENCY" not-null="true" />
+    </property>
+    <property name="ReservePrice" access="nosetter.camelcase" type="NHibernateInAction.CaveatEmptor.Persistence.MonetaryAmountCompositeUserType, NHibernateInAction.CaveatEmptor">
+      <column name="RESERVE_PRICE" length="2" not-null="true" />
+      <column name="RESERVE_PRICE_CURRENCY" not-null="true" />
+    </property>
+    <property name="StartDate" access="nosetter.camelcase" column="START_DATE" not-null="true" update="false" />
+    <property name="EndDate" access="nosetter.camelcase" column="END_DATE" not-null="true" update="false" />
+    <property name="State" access="nosetter.camelcase" column="STATE" not-null="true" />
+    <property name="ApprovalDatetime" column="APPROVAL_DATETIME" not-null="false" />
+    <property name="Created" access="nosetter.camelcase" column="CREATED" not-null="true" update="false" />
+    <many-to-one name="ApprovedBy" column="APPROVED_BY_USER_ID" foreign-key="FK1_APPROVED_BY_USER_ID" />
+    <many-to-one name="Seller" access="nosetter.camelcase" column="SELLER_ID" not-null="true" outer-join="false" update="false" />
+    <many-to-one name="SuccessfulBid" column="SUCCESSFUL_BID_ID" not-null="false" outer-join="false" />
+    <set name="CategorizedItems" access="nosetter.camelcase" lazy="true" cascade="all-delete-orphan" inverse="true">
+      <key foreign-key="FK2_CATEGORIZED_ITEM_ID">
+        <column name="ITEM_ID" length="16" not-null="true" />
+      </key>
+      <one-to-many class="NHibernateInAction.CaveatEmptor.Model.CategorizedItem, NHibernateInAction.CaveatEmptor" />
+    </set>
+    <bag name="Bids" access="nosetter.camelcase" cascade="all" inverse="true" order-by="CREATED desc">
+      <key column="ITEM_ID" />
+      <one-to-many class="NHibernateInAction.CaveatEmptor.Model.Bid, NHibernateInAction.CaveatEmptor" />
+    </bag>
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.Customer, NHibernateInAction.CaveatEmptor" table="CUSTOMER">
+    <id name="Id" access="nosetter.camelcase" column="CUSTOMER_ID">
+      <generator class="native" />
+    </id>
+    <many-to-one name="CustomerLocation" not-null="false" outer-join="true" update="false">
+      <column name="CUSTOMER_LOC_ONE" />
+      <column name="CUSTOMER_LOC_TWO" />
+    </many-to-one>
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.Bid, NHibernateInAction.CaveatEmptor" table="BID">
+    <id name="Id" access="nosetter.camelcase" column="BID_ID">
+      <generator class="native" />
+    </id>
+    <version name="Version" access="nosetter.camelcase" column="VERSION" />
+    <property name="Amount" access="nosetter.camelcase" type="NHibernateInAction.CaveatEmptor.Persistence.MonetaryAmountCompositeUserType, NHibernateInAction.CaveatEmptor" update="false">
+      <column name="INITIAL_PRICE" length="2" not-null="true" />
+      <column name="INITIAL_PRICE_CURRENCY" not-null="true" />
+    </property>
+    <property name="Created" access="nosetter.camelcase" column="CREATED" not-null="true" update="false" />
+    <many-to-one name="Item" access="nosetter.camelcase" column="ITEM_ID" not-null="true" outer-join="false" update="false" />
+    <many-to-one name="Bidder" access="nosetter.camelcase" column="BIDDER_ID" not-null="true" outer-join="true" update="false" />
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Persistence.Audit.AuditLogRecord, NHibernateInAction.CaveatEmptor" lazy="false" table="AUDIT_LOG_RECORD">
+    <id name="Id" access="field" type="long">
+      <generator class="native" />
+    </id>
+    <property name="Message" access="field" />
+    <property name="EntityId" access="field" />
+    <property name="EntityType" access="field" />
+    <property name="UserId" access="field" />
+    <property name="Created" access="field" />
+    <property name="EntityClass" access="field" />
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.Comment, NHibernateInAction.CaveatEmptor" table="COMMENTS">
+    <id name="Id" access="nosetter.camelcase" column="COMMENT_ID">
+      <generator class="native" />
+    </id>
+    <version name="Version" access="nosetter.camelcase" column="VERSION" />
+    <property name="Rating" access="nosetter.camelcase" column="RATING" not-null="true" update="false" />
+    <property name="Text" access="nosetter.camelcase" column="COMMENT_TEXT" length="4000" />
+    <property name="Created" access="nosetter.camelcase" column="CREATED" />
+    <many-to-one name="FromUser" access="nosetter.camelcase" column="FROM_USER_ID" not-null="true" outer-join="true" update="false" />
+    <many-to-one name="Item" access="nosetter.camelcase" column="ITEM_ID" not-null="true" outer-join="true" update="false" />
+  </class>
+  <class name="NHibernateInAction.CaveatEmptor.Model.User, NHibernateInAction.CaveatEmptor" table="USERS">
+    <id name="Id" access="nosetter.camelcase" column="USER_ID">
+      <generator class="native" />
+    </id>
+    <version name="Version" access="nosetter.camelcase" column="VERSION" />
+    <property name="Firstname" column="FIRST_NAME" not-null="true" />
+    <property name="Lastname" column="LAST_NAME" not-null="true" />
+    <property name="Username" access="nosetter.camelcase" column="USERNAME" length="16" not-null="true" update="false" />
+    <property name="Password" column="`PASSWORD`" not-null="true" />
+    <property name="Email" column="EMAIL" not-null="true" />
+    <property name="Ranking" column="RANKING" not-null="true" />
+    <property name="Created" access="nosetter.camelcase" column="CREATED" not-null="true" update="false" />
+    <property name="IsAdmin" column="IS_ADMIN" not-null="true" />
+    <many-to-one name="DefaultBillingDetails" column="DEFAULT_BILLING_DETAILS_ID" not-null="false" outer-join="false" foreign-key="FK1_DEFAULT_BILLING_DETAILS_ID" />
+    <component name="BillingAddress">
+      <property name="Zipcode" column="BILLING_ZIP_CODE" />
+      <property name="Street" column="BILLING_STREET" />
+      <property name="City" column="BILLING_CITY" />
+    </component>
+    <component name="HomeAddress" update="false">
+      <property name="Street" column="STREET" />
+      <property name="Zipcode" column="ZIP_CODE" />
+      <property name="City" column="CITY" />
+    </component>
+    <set name="Items" access="nosetter.camelcase" cascade="none" inverse="true">
+      <key>
+        <column name="SELLER_ID" not-null="true" />
+      </key>
+      <one-to-many class="NHibernateInAction.CaveatEmptor.Model.Item, NHibernateInAction.CaveatEmptor" />
+    </set>
+    <set name="BillingDetails" access="nosetter.camelcase" cascade="all-delete-orphan" inverse="true">
+      <key>
+        <column name="USER_ID" not-null="true" />
+      </key>
+      <one-to-many class="NHibernateInAction.CaveatEmptor.Model.BillingDetails, NHibernateInAction.CaveatEmptor" />
+    </set>
+  </class>
+  <joined-subclass name="NHibernateInAction.CaveatEmptor.Model.BankAccount, NHibernateInAction.CaveatEmptor" extends="NHibernateInAction.CaveatEmptor.Model.BillingDetails, NHibernateInAction.CaveatEmptor" table="BANK_ACCOUNT">
+    <key column="BANK_ACCOUNT_ID" foreign-key="FK1_BANK_ACCOUNT_ID" />
+    <property name="Number" column="ACCOUNT_NUMBER" length="16" not-null="true" />
+    <property name="BankName" column="BANK_NAME" length="255" not-null="true" />
+    <property name="BankSwift" column="BANK_SWIFT" length="15" not-null="true" />
+  </joined-subclass>
+  <joined-subclass name="NHibernateInAction.CaveatEmptor.Model.CreditCard, NHibernateInAction.CaveatEmptor" extends="NHibernateInAction.CaveatEmptor.Model.BillingDetails, NHibernateInAction.CaveatEmptor" table="CREDIT_CARD">
+    <key column="CREDIT_CARD_ID" foreign-key="FK1_CREDIT_CARD_ID" />
+    <property name="Type" access="nosetter.camelcase" column="CC_TYPE" not-null="true" update="false" />
+    <property name="Number" access="nosetter.camelcase" column="CC_NUMBER" length="16" not-null="true" />
+    <property name="ExpMonth" access="nosetter.camelcase" column="EXP_MONTH" length="2" not-null="true" update="false" />
+    <property name="ExpYear" access="nosetter.camelcase" column="EXP_YEAR" length="4" not-null="true" update="false" />
+  </joined-subclass>
+</hibernate-mapping>
